@@ -8,6 +8,7 @@
     --text-light: #ffffff;
     --text-dark: #333333;
     --transition: all 0.3s ease;
+    --scroll: 0;
 }
 
 * {
@@ -231,21 +232,16 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(15, 18, 20, 0.95);
+    background-color: rgba(0, 0, 0, 0.95);
     z-index: 1000;
     transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
     height: 80px; /* 明确设置导航栏高度 */
-}
-
-header.transparent {
-    background-color: rgba(15, 18, 20, 0.5);
-    box-shadow: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 header.scrolled {
-    background-color: rgba(15, 18, 20, 0.95);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.95);
 }
 
 header.hidden {
@@ -256,14 +252,18 @@ header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
     height: 80px;
-    max-width: 1400px;
+    position: relative;
 }
 
 .logo a {
     display: flex;
     align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.logo a:hover {
+    transform: scale(1.05);
 }
 
 .logo h1 {
@@ -271,31 +271,34 @@ header .container {
     font-weight: 700;
     color: #fff;
     letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+/* 导航菜单 */
+nav {
+    display: flex;
+    align-items: center;
 }
 
 .main-menu {
     display: flex;
-    gap: 40px;
-    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 25px;
 }
 
 .main-menu li {
-    height: 100%;
-    display: flex;
-    align-items: center;
     position: relative;
 }
 
 .main-menu a {
     color: #fff;
+    text-decoration: none;
     font-weight: 500;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 0 5px;
-    height: 100%;
-    display: flex;
-    align-items: center;
+    padding: 10px 5px;
+    transition: all 0.3s ease;
+    display: block;
     position: relative;
 }
 
@@ -304,28 +307,36 @@ header .container {
     position: absolute;
     bottom: 0;
     left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.main-menu a.active::after,
+.main-menu a:hover::after {
     width: 100%;
-    height: 3px;
-    background-color: #fff;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
 }
 
-.main-menu a:hover::after,
-.main-menu a.active::after {
-    transform: scaleX(1);
+.main-menu a.active,
+.main-menu a:hover {
+    color: var(--accent-color);
 }
 
+/* 移动端菜单图标 */
 .mobile-menu-toggle {
     display: none;
-    color: #fff;
     font-size: 1.5rem;
+    color: #fff;
     cursor: pointer;
-    z-index: 101;
+    z-index: 1001;
+    transition: all 0.3s ease;
 }
 
 .mobile-menu-toggle.active {
     color: var(--accent-color);
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
 }
 
 /* 英雄区域 */
@@ -368,58 +379,6 @@ header .container {
 .slide.active {
     opacity: 1;
     z-index: 1;
-}
-
-.slide-controls {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 2;
-}
-
-.slide-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.slide-dot.active {
-    background-color: #fff;
-    transform: scale(1.2);
-}
-
-.slide-navigation {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 30px;
-    z-index: 2;
-    transform: translateY(-50%);
-}
-
-.slide-nav-btn {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.slide-nav-btn:hover {
-    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .hero-content {
@@ -507,18 +466,6 @@ body:not(.home) main {
     color: #666;
 }
 
-/* 新品推荐 */
-.featured-products {
-    padding: 50px 0 100px;
-    background-color: #f0f2f5;
-}
-
-.product-slider {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
 .product-card {
     background-color: white;
     border-radius: 15px;
@@ -527,12 +474,9 @@ body:not(.home) main {
     transition: var(--transition);
     text-align: center;
     padding-bottom: 25px;
-    transform-style: preserve-3d;
-    perspective: 1000px;
 }
 
 .product-card:hover {
-    transform: rotateY(5deg);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
 }
 
@@ -563,27 +507,6 @@ body:not(.home) main {
     font-weight: 700;
     font-size: 1.2rem;
     margin-bottom: 20px;
-}
-
-/* 促销区域 */
-.promotion {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #6A11CB, #2575fc);
-    color: var(--text-light);
-    text-align: center;
-}
-
-.promo-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.promo-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /* 页脚 */
@@ -696,11 +619,17 @@ footer {
 @media (max-width: 768px) {
     header {
         height: 60px;
+        background-color: rgba(0, 0, 0, 0.98);
     }
     
     header .container {
         padding: 0 20px;
         height: 60px;
+        justify-content: space-between;
+    }
+    
+    .logo h1 {
+        font-size: 1.6rem;
     }
     
     .main-menu {
@@ -709,13 +638,20 @@ footer {
         left: -100%;
         width: 80%;
         height: calc(100vh - 60px);
-        background-color: rgba(15, 18, 20, 0.95);
+        background-color: rgba(0, 0, 0, 0.98);
         flex-direction: column;
-        padding: 40px 20px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        transition: var(--transition);
-        z-index: 99;
-        gap: 20px;
+        padding: 30px 25px;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        z-index: 999;
+        gap: 10px;
+        display: flex;
+        overflow-y: auto;
+        visibility: hidden; /* 默认隐藏 */
+        align-items: flex-start; /* 确保元素靠左对齐 */
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        transform: translateX(-20px);
+        opacity: 0;
     }
     
     header.no-warning .main-menu {
@@ -724,10 +660,39 @@ footer {
     
     .main-menu.active {
         left: 0;
+        display: flex;
+        visibility: visible; /* 显示时可见 */
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .main-menu li {
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .main-menu li:last-child {
+        border-bottom: none;
+    }
+    
+    .main-menu a {
+        width: 100%;
+        padding: 15px 0;
+        font-size: 1.1rem;
+    }
+    
+    .main-menu a::after {
+        display: none;
     }
     
     .mobile-menu-toggle {
         display: block;
+        padding: 8px;
+    }
+    
+    .mobile-menu-toggle:hover {
+        color: var(--accent-color);
     }
     
     .hero {
@@ -755,26 +720,12 @@ footer {
         font-size: 2.2rem;
     }
     
-    .slide-navigation {
-        display: none; /* 在移动端隐藏左右导航按钮 */
-    }
-    
-    .slide-controls {
-        bottom: 15px;
-    }
-    
-    .slide-dot {
-        width: 10px;
-        height: 10px;
-    }
-    
     /* 在移动端为特定幻灯片设置背景图片 */
     .slide:first-child {
         background-image: url('../images/竖屏网页广告图/YUVAPE网页广告图.jpg') !important;
     }
     
-    .product-categories,
-    .featured-products {
+    .product-categories {
         padding: 60px 15px;
     }
     
@@ -818,10 +769,6 @@ footer {
         font-size: 1rem;
     }
     
-    .product-slider {
-        grid-template-columns: 1fr;
-    }
-    
     .footer-columns {
         grid-template-columns: 1fr;
     }
@@ -836,4 +783,167 @@ footer {
     .whatsapp-floating a {
         font-size: 1.5rem;
     }
-} 
+}
+
+/* 添加滚动指示器 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+    transform-origin: left;
+    transform: scaleX(var(--scroll));
+    z-index: 1001;
+}
+
+/* 导航菜单链接点击效果 */
+.main-menu a:active {
+    transform: scale(0.95);
+}
+
+/* 移动端菜单滚动条样式 */
+.main-menu::-webkit-scrollbar {
+    width: 4px;
+}
+
+.main-menu::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.main-menu::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 10px;
+}
+
+/* 移动端菜单激活时的背景遮罩 */
+@media (max-width: 768px) {
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        backdrop-filter: blur(3px);
+        pointer-events: none;
+    }
+    
+    body:has(.main-menu.active)::after {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+    
+    /* 优化移动端导航栏激活时展示效果 */
+    .main-menu.active {
+        /* 已有样式 */
+    }
+    
+    .main-menu.active li {
+        opacity: 0;
+        transform: translateX(-10px);
+        animation: fadeInRight 0.3s forwards;
+    }
+    
+    .main-menu.active li:nth-child(1) { animation-delay: 0.1s; }
+    .main-menu.active li:nth-child(2) { animation-delay: 0.2s; }
+    .main-menu.active li:nth-child(3) { animation-delay: 0.3s; }
+    .main-menu.active li:nth-child(4) { animation-delay: 0.4s; }
+    .main-menu.active li:nth-child(5) { animation-delay: 0.5s; }
+    
+    @keyframes fadeInRight {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+
+/* 自定义WhatsApp按钮与导航栏的协调性 */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--secondary-color);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+    transition: var(--transition);
+    z-index: 99;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) rotate(5deg);
+    background-color: #25D366;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* 关于我们部分 */
+.about-section {
+    padding: 100px 0;
+    background-color: var(--light-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, var(--secondary-color), transparent);
+    border-radius: 50%;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.about-content {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.about-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        padding: 60px 15px;
+    }
+    
+    .about-content {
+        padding: 30px 20px;
+    }
+    
+    .about-content p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+

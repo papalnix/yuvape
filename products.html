@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>产品系列 - YUVAPE</title>
+    <title>產品系列 - YUVAPE</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/products.css">
 </head>
 <body>
+    <div id="age-verification" class="overlay">
+        <div class="modal">
+            <div class="logo">YUVAPE</div>
+            <h2>警告</h2>
+            <p>本產品旨在與含有尼古丁的電子煙液體產品一起使用。尼古丁是一種令人上癮的化學物質。</p>
+            <p>您必須確保您的年齡已年滿 18 歲，然後才能進一步瀏覽此網站。否則，請立即離開並關閉此頁面！</p>
+            <div class="buttons">
+                <button id="confirm-age" class="btn-primary">18 +</button>
+                <button id="reject-age" class="btn-secondary">18 歲以下</button>
+            </div>
+        </div>
+    </div>
+
     <header>
         <div class="container">
             <div class="logo">
@@ -16,57 +29,58 @@
                     <h1>YUVAPE</h1>
                 </a>
             </div>
-            <nav>
-                <ul class="main-menu">
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="products.html" class="active">产品系列</a></li>
-                </ul>
-            </nav>
             <div class="mobile-menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="products.html" class="active">產品系列</a></li>
+                    <li><a href="index.html#about">關於我們</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <main>
         <section class="products-hero">
             <div class="container">
-                <h1 class="page-title">探索我们的产品系列</h1>
-                <p class="page-description">精心打造，匠心独运</p>
+                <h1 class="page-title">探索我們的產品系列</h1>
+                <p class="page-description">精心打造，匠心獨運</p>
             </div>
         </section>
 
         <section class="product-category-tabs container">
             <div class="tabs">
-                <button class="tab-btn active" data-category="all">全部产品</button>
-                <button class="tab-btn" data-category="pods" id="pods">烟弹</button>
-                <button class="tab-btn" data-category="devices" id="devices">电子烟机</button>
-                <button class="tab-btn" data-category="disposable" id="disposable">一次性电子烟</button>
+                <button class="tab-btn active" data-category="all">全部產品</button>
+                <button class="tab-btn" data-category="pods" id="pods">煙彈</button>
+                <button class="tab-btn" data-category="devices" id="devices">電子煙機</button>
+                <button class="tab-btn" data-category="disposable" id="disposable">一次性電子煙</button>
             </div>
         </section>
 
         <section class="product-grid container">
             <div class="category-header" id="category-pods">
-                <h2>烟弹</h2>
-                <p>多样口味，随心切换，丰富您的生活</p>
+                <h2>煙彈</h2>
+                <p>多樣口味，隨心切換，豐富您的生活</p>
             </div>
 
             <div class="products-row" data-category="pods">
                 <div class="product-card">
-                    <div class="product-badge">热销</div>
+                    <div class="product-badge">熱銷</div>
                     <div class="product-image">
-                        <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列.jpg" alt="MIST系列精选套装">
+                        <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列.jpg" alt="MIST系列精選套裝">
                     </div>
-                    <h3>MIST系列 - 精选套装</h3>
-                    <p class="product-description">多种口味，一次尽享</p>
+                    <h3>MIST系列 - 精選套裝</h3>
+                    <p class="product-description">多種口味，一次盡享</p>
                 </div>
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列 (1).jpg" alt="MIST系列蓝莓味">
+                        <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列 (1).jpg" alt="MIST系列藍莓味">
                     </div>
-                    <h3>MIST系列 - 蓝莓味</h3>
-                    <p class="product-description">清新蓝莓，自然果香</p>
+                    <h3>MIST系列 - 藍莓味</h3>
+                    <p class="product-description">清新藍莓，自然果香</p>
                 </div>
                 
                 <div class="product-card">
@@ -74,7 +88,7 @@
                         <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列 (2).jpg" alt="MIST系列薄荷味">
                     </div>
                     <h3>MIST系列 - 薄荷味</h3>
-                    <p class="product-description">清凉薄荷，畅快呼吸</p>
+                    <p class="product-description">清涼薄荷，暢快呼吸</p>
                 </div>
 
                 <div class="product-card">
@@ -82,7 +96,7 @@
                         <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列 (3).jpg" alt="MIST系列芒果味">
                     </div>
                     <h3>MIST系列 - 芒果味</h3>
-                    <p class="product-description">热带芒果，甜美诱人</p>
+                    <p class="product-description">熱帶芒果，甜美誘人</p>
                 </div>
                 
                 <div class="product-card">
@@ -90,7 +104,7 @@
                         <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列 (4).jpg" alt="MIST系列西瓜味">
                     </div>
                     <h3>MIST系列 - 西瓜味</h3>
-                    <p class="product-description">清爽西瓜，夏日风情</p>
+                    <p class="product-description">清爽西瓜，夏日風情</p>
                 </div>
                 
                 <div class="product-card">
@@ -98,7 +112,7 @@
                         <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列 (5).jpg" alt="MIST系列葡萄味">
                     </div>
                     <h3>MIST系列 - 葡萄味</h3>
-                    <p class="product-description">醇厚葡萄，回味无穷</p>
+                    <p class="product-description">醇厚葡萄，回味無窮</p>
                 </div>
                 
                 <div class="product-card">
@@ -111,10 +125,10 @@
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列 (7).jpg" alt="MIST系列柠檬味">
+                        <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列 (7).jpg" alt="MIST系列檸檬味">
                     </div>
-                    <h3>MIST系列 - 柠檬味</h3>
-                    <p class="product-description">清新柠檬，酸甜可口</p>
+                    <h3>MIST系列 - 檸檬味</h3>
+                    <p class="product-description">清新檸檬，酸甜可口</p>
                 </div>
                 
                 <div class="product-card">
@@ -122,7 +136,7 @@
                         <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列 (8).jpg" alt="MIST系列荔枝味">
                     </div>
                     <h3>MIST系列 - 荔枝味</h3>
-                    <p class="product-description">甜美荔枝，东方风韵</p>
+                    <p class="product-description">甜美荔枝，東方風韻</p>
                 </div>
                 
                 <div class="product-card">
@@ -130,23 +144,23 @@
                         <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列 (9).jpg" alt="MIST系列水蜜桃味">
                     </div>
                     <h3>MIST系列 - 水蜜桃味</h3>
-                    <p class="product-description">多汁蜜桃，香甜诱人</p>
+                    <p class="product-description">多汁蜜桃，香甜誘人</p>
                 </div>
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列 (10).jpg" alt="MIST系列冰镇茉莉">
+                        <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列 (10).jpg" alt="MIST系列冰鎮茉莉">
                     </div>
-                    <h3>MIST系列 - 冰镇茉莉</h3>
+                    <h3>MIST系列 - 冰鎮茉莉</h3>
                     <p class="product-description">清雅茉莉，冰爽宜人</p>
                 </div>
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列 (11).jpg" alt="MIST系列青苹果味">
+                        <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列 (11).jpg" alt="MIST系列青蘋果味">
                     </div>
-                    <h3>MIST系列 - 青苹果味</h3>
-                    <p class="product-description">清脆青苹果，清新爽口</p>
+                    <h3>MIST系列 - 青蘋果味</h3>
+                    <p class="product-description">清脆青蘋果，清新爽口</p>
                 </div>
                 
                 <div class="product-card">
@@ -154,44 +168,44 @@
                         <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列 (13).jpg" alt="MIST系列冰霜柑橘">
                     </div>
                     <h3>MIST系列 - 冰霜柑橘</h3>
-                    <p class="product-description">清凉柑橘，冰爽可口</p>
+                    <p class="product-description">清涼柑橘，冰爽可口</p>
                 </div>
 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列 (12).jpg" alt="MIST系列热带水果">
+                        <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列 (12).jpg" alt="MIST系列熱帶水果">
                     </div>
-                    <h3>MIST系列 - 热带水果</h3>
-                    <p class="product-description">混合水果，热带风情</p>
+                    <h3>MIST系列 - 熱帶水果</h3>
+                    <p class="product-description">混合水果，熱帶風情</p>
                 </div>
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/烟弹-第一代-SUKI系列/第一代电子烟SUKI系列.jpg" alt="SUKI系列苹果味">
+                        <img src="images/烟弹-第一代-SUKI系列/第一代电子烟SUKI系列.jpg" alt="SUKI系列蘋果味">
                     </div>
                     <h3>SUKI系列</h3>
-                    <p class="product-description">鲜甜多汁，清新果香</p>
+                    <p class="product-description">鮮甜多汁，清新果香</p>
                 </div>
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/烟弹-第一代GRID系列/第一代电子烟GRID系列 (1).jpg" alt="GRID系列烟草味">
+                        <img src="images/烟弹-第一代GRID系列/第一代电子烟GRID系列 (1).jpg" alt="GRID系列煙草味">
                     </div>
                     <h3>GRID系列</h3>
-                    <p class="product-description">经典烟草，醇厚回味</p>
+                    <p class="product-description">經典煙草，醇厚回味</p>
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/烟弹-第一代GRID系列/第一代电子烟GRID系列 (2).jpg" alt="GRID系列烟草味">
+                        <img src="images/烟弹-第一代GRID系列/第一代电子烟GRID系列 (2).jpg" alt="GRID系列煙草味">
                     </div>
                     <h3>GRID系列</h3>
-                    <p class="product-description">经典烟草，醇厚回味</p>
+                    <p class="product-description">經典煙草，醇厚回味</p>
                 </div>
             </div>
 
             <div class="category-header" id="category-devices">
-                <h2>电子烟机</h2>
-                <p>高端设计，持久续航，给您极致体验</p>
+                <h2>電子煙機</h2>
+                <p>高端設計，持久續航，給您極致體驗</p>
             </div>
 
             <div class="products-row" data-category="devices">
@@ -199,23 +213,23 @@
                     <div class="product-image">
                         <img src="images/烟机-第五代电子烟-KONG系列/第五代电子烟机概括.jpg" alt="KONG系列黑色">
                     </div>
-                    <h3>KONG系列 - 经典黑</h3>
-                    <p class="product-description">强劲动力，尊贵体验</p>
+                    <h3>KONG系列 - 經典黑</h3>
+                    <p class="product-description">強勁動力，尊貴體驗</p>
                 </div>
 
                 <div class="product-card">
                     <div class="product-image">
                         <img src="images/烟机-第五代电子烟-KONG系列/第五代电子烟机KONG (1).jpg" alt="KONG系列黑色">
                     </div>
-                    <h3>KONG系列 -无暇白</h3>
-                    <p class="product-description">强劲动力，尊贵体验</p>
+                    <h3>KONG系列 -無暇白</h3>
+                    <p class="product-description">強勁動力，尊貴體驗</p>
                 </div>
                 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/烟机-第五代电子烟-KONG系列/第五代电子烟机KONG (2).jpg" alt="KONG系列银色">
+                        <img src="images/烟机-第五代电子烟-KONG系列/第五代电子烟机KONG (2).jpg" alt="KONG系列銀色">
                     </div>
-                    <h3>KONG系列 - 深沉蓝</h3>
+                    <h3>KONG系列 - 深沉藍</h3>
                     <p class="product-description">卓越性能，科技感十足</p>
                 </div>
                 
@@ -223,8 +237,8 @@
                     <div class="product-image">
                         <img src="images/烟机-第五代电子烟-MEGA VAPEZ系列/第五代电子烟机MEGA VAPEZ (2).jpg" alt="MEGA VAPEZ系列金色">
                     </div>
-                    <h3>MEGA VAPEZ - 纯白</h3>
-                    <p class="product-description">顶级配置，尊贵体验</p>
+                    <h3>MEGA VAPEZ - 純白</h3>
+                    <p class="product-description">頂級配置，尊貴體驗</p>
                 </div>
                 
                 <div class="product-card">
@@ -232,23 +246,23 @@
                         <img src="images/烟机-第五代电子烟-MEGA VAPEZ系列/第五代电子烟机MEGA VAPEZ (2).jpg" alt="MEGA VAPEZ系列黑色">
                     </div>
                     <h3>MEGA VAPEZ - 暗黑</h3>
-                    <p class="product-description">强劲续航，精致工艺</p>
+                    <p class="product-description">強勁續航，精緻工藝</p>
                 </div>
             </div>
 
             <div class="category-header" id="category-disposable">
-                <h2>一次性电子烟</h2>
-                <p>轻便小巧，随时随地享受优质烟雾体验</p>
+                <h2>一次性電子煙</h2>
+                <p>輕便小巧，隨時隨地享受優質煙霧體驗</p>
             </div>
 
             <div class="products-row" data-category="disposable">
                 <div class="product-card">
-                    <div class="product-badge">热销</div>
+                    <div class="product-badge">熱銷</div>
                     <div class="product-image">
-                        <img src="images/一次性电子烟-Floral系列/一次性电子烟系列Floral.jpg" alt="Floral蓝莓口味">
+                        <img src="images/一次性电子烟-Floral系列/一次性电子烟系列Floral.jpg" alt="Floral藍莓口味">
                     </div>
                     <h3>Floral 系列</h3>
-                    <p class="product-description">多種口味任你選，丝滑口感</p>
+                    <p class="product-description">多種口味，一次性享受</p>
                 </div>
             </div>
         </section>
@@ -258,16 +272,16 @@
         <div class="container">
             <div class="footer-columns">
                 <div class="footer-column">
-                    <h3>关于YUVAPE</h3>
-                    <p>我们致力于为用户提供高端、安全的电子烟产品，打造极致雾化体验。</p>
+                    <h3>關於YUVAPE</h3>
+                    <p>我們致力於為用戶提供高端、安全的電子煙產品，打造極致霧化體驗。</p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div class="health-disclaimer">
-                    <p>健康提示：本产品含有尼古丁，尼古丁是一种具有成瘾性的化学物质。</p>
+                    <p>健康提示：本產品含有尼古丁，尼古丁是一種具有成癮性的化學物質。</p>
                 </div>
                 <div class="copyright">
-                    <p>&copy; 2025 YUVAPE 版权所有</p>
+                    <p>&copy; 2025 YUVAPE 版權所有</p>
                 </div>
             </div>
         </div>

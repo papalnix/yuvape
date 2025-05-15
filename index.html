@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YUVAPE - 高端电子烟品牌</title>
+    <title>YUVAPE - 高端電子煙品牌</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="YUVAPE - 高品質電子煙產品，包括煙彈、電子煙機和一次性電子煙">
 </head>
 <body class="home">
     <div id="age-verification" class="overlay">
         <div class="modal">
             <div class="logo">YUVAPE</div>
             <h2>警告</h2>
-            <p>本产品旨在与含有尼古丁的电子烟液体产品一起使用。尼古丁是一种令人上瘾的化学物质。</p>
-            <p>您必须确保您的年龄已年满 21 岁，然后才能进一步浏览此网站。否则，请立即离开并关闭此页面！</p>
+            <p>本產品旨在與含有尼古丁的電子煙液體產品一起使用。尼古丁是一種令人上癮的化學物質。</p>
+            <p>您必須確保您的年齡已年滿 18 歲，然後才能進一步瀏覽此網站。否則，請立即離開並關閉此頁面！</p>
             <div class="buttons">
-                <button id="confirm-age" class="btn-primary">21 +</button>
-                <button id="reject-age" class="btn-secondary">21 岁以下</button>
+                <button id="confirm-age" class="btn-primary">18 +</button>
+                <button id="reject-age" class="btn-secondary">18 歲以下</button>
             </div>
         </div>
     </div>
@@ -28,15 +29,16 @@
                     <h1>YUVAPE</h1>
                 </a>
             </div>
-            <nav>
-                <ul class="main-menu">
-                    <li><a href="index.html" class="active">首页</a></li>
-                    <li><a href="products.html">产品系列</a></li>
-                </ul>
-            </nav>
             <div class="mobile-menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="index.html" class="active">首頁</a></li>
+                    <li><a href="#products">產品系列</a></li>
+                    <li><a href="#about">關於我們</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -48,53 +50,58 @@
             </div>
         </section>
 
-        <section class="product-categories container">
-            <h2 class="section-title">产品</h2>
+        <section id="products" class="product-categories container">
+            <h2 class="section-title">產品</h2>
             <div class="categories">
                 <div class="category-card">
                     <div class="category-image">
-                        <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列.jpg" alt="烟弹系列">
+                        <img src="images/烟弹-第五代-MIST系列/第五代电子烟MIST系列.jpg" alt="煙彈系列">
                     </div>
-                    <h3>烟弹</h3>
-                    <p>多样口味，随心切换</p>
-                    <a href="products.html#pods" class="btn-secondary">了解更多</a>
+                    <h3>煙彈</h3>
+                    <p>多樣口味，隨心切換</p>
+                    <a href="products.html#pods" class="btn-secondary">瞭解更多</a>
                 </div>
                 <div class="category-card">
                     <div class="category-image">
-                        <img src="images/烟机-第五代电子烟-KONG系列/第五代电子烟机概括.jpg" alt="电子烟机">
+                        <img src="images/烟机-第五代电子烟-KONG系列/第五代电子烟机概括.jpg" alt="電子煙機">
                     </div>
-                    <h3>电子烟机</h3>
-                    <p>强劲性能，持久体验</p>
-                    <a href="products.html#devices" class="btn-secondary">了解更多</a>
+                    <h3>電子煙機</h3>
+                    <p>強勁性能，持久體驗</p>
+                    <a href="products.html#devices" class="btn-secondary">瞭解更多</a>
                 </div>
                 <div class="category-card">
                     <div class="category-image">
-                        <img src="images/一次性电子烟-Floral系列/一次性电子烟系列Floral.jpg" alt="一次性电子烟">
+                        <img src="images/一次性电子烟-Floral系列/一次性电子烟系列Floral.jpg" alt="一次性電子煙">
                     </div>
-                    <h3>一次性电子烟</h3>
-                    <p>轻便携带，随时享受</p>
-                    <a href="products.html#disposable" class="btn-secondary">了解更多</a>
+                    <h3>一次性電子煙</h3>
+                    <p>輕便攜帶，隨時享受</p>
+                    <a href="products.html#disposable" class="btn-secondary">瞭解更多</a>
                 </div>
             </div>
         </section>
 
-        <!-- 新品推荐模块已移除 -->
+        <section id="about" class="about-section container">
+            <h2 class="section-title">關於 YUVAPE</h2>
+            <div class="about-content">
+                <p>我們致力於為用戶提供高端、安全的電子煙產品，打造極致霧化體驗。YUVAPE 品牌不斷創新，推出更優質、更安全的產品，滿足不同用戶的需求。</p>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="container">
             <div class="footer-columns">
                 <div class="footer-column">
-                    <h3>关于YUVAPE</h3>
-                    <p>我们致力于为用户提供高端、安全的电子烟产品，打造极致雾化体验。</p>
+                    <h3>關於YUVAPE</h3>
+                    <p>我們致力於為用戶提供高端、安全的電子煙產品，打造極致霧化體驗。</p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div class="health-disclaimer">
-                    <p>健康提示：本产品含有尼古丁，尼古丁是一种具有成瘾性的化学物质。</p>
+                    <p>健康提示：本產品含有尼古丁，尼古丁是一種具有成癮性的化學物質。</p>
                 </div>
                 <div class="copyright">
-                    <p>&copy; 2025 YUVAPE 版权所有</p>
+                    <p>&copy; 2025 YUVAPE 版權所有</p>
                 </div>
             </div>
         </div>

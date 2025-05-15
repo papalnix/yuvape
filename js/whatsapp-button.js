@@ -1,6 +1,6 @@
-// WhatsApp按钮功能管理
+// WhatsApp按鈕功能管理
 function initWhatsAppButton() {
-    // 创建WhatsApp按钮元素
+    // 創建WhatsApp按鈕元素
     const whatsappButton = document.createElement('a');
     whatsappButton.className = 'whatsapp-float';
     whatsappButton.href = '#';
@@ -10,7 +10,7 @@ function initWhatsAppButton() {
         </svg>
     `;
 
-    // 添加样式
+    // 添加樣式
     const style = document.createElement('style');
     style.textContent = `
         .whatsapp-float {
@@ -37,30 +37,30 @@ function initWhatsAppButton() {
         }
     `;
 
-    // 添加到文档
+    // 添加到文檔
     document.head.appendChild(style);
     document.body.appendChild(whatsappButton);
 
-    // 处理点击事件
+    // 處理點擊事件
     whatsappButton.addEventListener('click', function(e) {
         e.preventDefault();
-        const phoneNumber = '85291716165'; // 香港号码
+        const phoneNumber = '85291716165'; // 香港號碼
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-        // 构建WhatsApp链接
+        // 構建WhatsApp鏈接
         const whatsappUrl = isMobile
             ? `whatsapp://send?phone=${phoneNumber}`
             : `https://web.whatsapp.com/send?phone=${phoneNumber}`;
 
-        // 尝试打开WhatsApp
+        // 嘗試打開WhatsApp
         window.location.href = whatsappUrl;
 
-        // 处理WhatsApp可能未安装的情况
+        // 處理WhatsApp可能未安裝的情況
         setTimeout(function() {
-            // 如果页面还在（WhatsApp未打开），则重定向到应用商店或提示安装
+            // 如果頁面還在（WhatsApp未打開），則重定向到應用商店或提示安裝
             if (document.hasFocus()) {
                 if (isMobile) {
-                    if (confirm('看起来您还没有安装WhatsApp，是否前往下载？')) {
+                    if (confirm('看起來您還沒有安裝WhatsApp，是否前往下載？')) {
                         if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
                             window.location.href = 'https://apps.apple.com/app/whatsapp-messenger/id310633997';
                         } else {
@@ -75,5 +75,5 @@ function initWhatsAppButton() {
     });
 }
 
-// 当DOM加载完成后初始化WhatsApp按钮
+// 當DOM加載完成後初始化WhatsApp按鈕
 document.addEventListener('DOMContentLoaded', initWhatsAppButton);
