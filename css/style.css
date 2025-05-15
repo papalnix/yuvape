@@ -843,9 +843,6 @@ body::before {
     }
     
     /* 优化移动端导航栏激活时展示效果 */
-    .main-menu.active {
-        /* 已有样式 */
-    }
     
     .main-menu.active li {
         opacity: 0;
