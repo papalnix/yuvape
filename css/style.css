@@ -722,7 +722,7 @@ footer {
     
     /* 在移动端为特定幻灯片设置背景图片 */
     .slide:first-child {
-        background-image: url('../images/竖屏网页广告图/phone_baner_boy.jpg') !important;
+        background-image: url('../images/竖屏网页广告图/mobile_banner.jpg') !important;
     }
     
     .product-categories {
