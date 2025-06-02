@@ -1,5 +1,11 @@
 // 创建钱袋按钮
 const createWalletButton = () => {
+    // 检查年龄验证状态
+    const isAgeVerified = localStorage.getItem('age-verified') === 'true';
+    if (!isAgeVerified) {
+        return; // 如果未通过年龄验证，不创建按钮
+    }
+
     // 创建按钮
     const button = document.createElement('div');
     button.className = 'wallet-button';

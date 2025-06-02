@@ -1,5 +1,11 @@
 // WhatsApp按鈕功能管理
 function initWhatsAppButton() {
+    // 检查年龄验证状态
+    const isAgeVerified = localStorage.getItem('age-verified') === 'true';
+    if (!isAgeVerified) {
+        return; // 如果未通过年龄验证，不创建按钮
+    }
+
     // 随便写个号码先
     const phoneNumber = '8595849018'; // 香港號碼
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);

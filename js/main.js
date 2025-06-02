@@ -54,6 +54,10 @@ function ageVerification(){
     confirmAgeBtn?.addEventListener('click', function() {
         localStorage.setItem('age-verified', 'true');
         ageVerification.style.display = 'none';
+        
+        // 创建whatsapp和wallet按钮
+        initWhatsAppButton();
+        createWalletButton();
     });
     
     // 拒絕年齡
