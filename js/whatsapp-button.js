@@ -1,7 +1,7 @@
 // WhatsApp按鈕功能管理
 function initWhatsAppButton() {
     // 随便写个号码先
-    const phoneNumber = '8586129497'; // 香港號碼
+    const phoneNumber = '8595849018'; // 香港號碼
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     
     // WhatsApp SVG 图标
