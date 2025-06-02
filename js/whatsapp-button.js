@@ -11,12 +11,26 @@ function initWhatsAppButton() {
         </svg>
     `;
     
-    // 創建WhatsApp按鈕元素 - 使用 DocumentFragment 减少重排
+    // 創建WhatsApp按鈕和二維碼彈窗元素
     const fragment = document.createDocumentFragment();
+    
+    // 创建二维码弹窗
+    const qrPopup = document.createElement('div');
+    qrPopup.className = 'whatsapp-qr-popup';
+    qrPopup.innerHTML = `
+        <div class="qr-content">
+            <button class="close-btn">×</button>
+            <img src="images/qr_code.jpg" alt="WhatsApp QR Code" class="qr-image">
+            <button class="direct-open-btn">打開应用</button>
+        </div>
+    `;
+    
     const whatsappButton = document.createElement('a');
     whatsappButton.className = 'whatsapp-float';
     whatsappButton.href = '#';
     whatsappButton.innerHTML = whatsappSvg;
+    
+    fragment.appendChild(qrPopup);
     fragment.appendChild(whatsappButton);
 
     // 如果样式不存在才添加
@@ -46,15 +60,76 @@ function initWhatsAppButton() {
             .whatsapp-float:hover {
                 transform: scale(1.1);
             }
+            
+            .whatsapp-qr-popup {
+                position: fixed;
+                bottom: 90px;
+                right: 90px;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                padding: 20px;
+                display: none;
+                z-index: 999;
+            }
+            
+            .whatsapp-qr-popup.active {
+                display: block;
+            }
+            
+            .qr-content {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .close-btn {
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                border: none;
+                background: #d3d3d3;
+                color: white;
+                font-size: 18px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .qr-image {
+                width: 200px;
+                height: 200px;
+                object-fit: contain;
+                margin-bottom: 10px;
+            }
+            
+            .direct-open-btn {
+                padding: 8px 16px;
+                background: #25D366;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 14px;
+            }
+            
+            .direct-open-btn:hover {
+                background: #1ea355;
+            }
         `;
         fragment.appendChild(style);
     }
 
     // 一次性添加到文档
     document.head.appendChild(fragment.querySelector('style') || document.createDocumentFragment());
-    document.body.appendChild(whatsappButton);
+    document.body.appendChild(fragment);
 
-    // 构建 WhatsApp URL，只计算一次
+    // 构建 WhatsApp URL
     const whatsappUrl = isMobile
         ? `whatsapp://send?phone=${phoneNumber}`
         : `https://web.whatsapp.com/send?phone=${phoneNumber}`;
@@ -70,13 +145,20 @@ function initWhatsAppButton() {
     // 處理點擊事件
     whatsappButton.addEventListener('click', function(e) {
         e.preventDefault();
-        
-        // 打开 WhatsApp
+        const popup = document.querySelector('.whatsapp-qr-popup');
+        popup.classList.add('active');
+    });
+    
+    // 关闭按钮点击事件
+    document.querySelector('.close-btn').addEventListener('click', function() {
+        document.querySelector('.whatsapp-qr-popup').classList.remove('active');
+    });
+    
+    // 直接打开按钮点击事件
+    document.querySelector('.direct-open-btn').addEventListener('click', function() {
         window.location.href = whatsappUrl;
-
-        // 使用更高效的计时器
+        
         const openTimeout = setTimeout(function() {
-            // 如果頁面還在（WhatsApp未打開），則重定向到應用商店或提示安裝
             if (document.hasFocus()) {
                 if (isMobile) {
                     if (confirm('看起來您還沒有安裝WhatsApp，是否前往下載？')) {
