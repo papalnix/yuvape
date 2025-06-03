@@ -84,15 +84,6 @@ const createWalletButton = () => {
                 transform: scale(1.1);
                 background: rgba(0, 0, 0, 0.7);
             }
-
-            @media (max-width: 576px) {
-                .wallet-button {
-                    width: 50px;
-                    height: 50px;
-                    font-size: 24px;
-                    bottom: 150px;
-                }
-            }
         `;
         document.head.appendChild(style);
     }
