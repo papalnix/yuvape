@@ -39,5 +39,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
 }); 
+
+function tabButtons() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    
+    // 为每个标签按钮添加点击事件监听器
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            // 移除所有按钮的 active 类
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // 为当前点击的按钮添加 active 类
+            this.classList.add('active');
+        });
+    });
+}
