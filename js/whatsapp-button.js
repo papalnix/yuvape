@@ -100,7 +100,7 @@ function initWhatsAppButton() {
                 height: 30px;
                 border-radius: 50%;
                 border: none;
-                background: rgba(0, 0, 0, 0.7);
+                background-color: #a0a0a0;
                 color: white;
                 font-size: 18px;
                 cursor: pointer;
@@ -113,7 +113,7 @@ function initWhatsAppButton() {
             }
             
             .close-btn:hover {
-                background-color: #a0a0a0;
+                background: rgba(0, 0, 0, 0.7);
                 transform: scale(1.1);
             }
             
