@@ -25,7 +25,9 @@ function initWhatsAppButton() {
     qrPopup.className = 'whatsapp-qr-popup';
     qrPopup.innerHTML = `
         <div class="qr-content">
-            <button class="close-btn">×</button>
+            <button class="close-btn" type="button">
+                <span class="close-icon">×</span>
+            </button>
             <img src="images/qr_code.jpg" alt="WhatsApp QR Code" class="qr-image">
             <button class="direct-open-btn">打開应用</button>
         </div>
@@ -94,17 +96,34 @@ function initWhatsAppButton() {
                 position: absolute;
                 top: -10px;
                 right: -10px;
-                width: 24px;
-                height: 24px;
+                width: 30px;
+                height: 30px;
                 border-radius: 50%;
                 border: none;
-                background: #d3d3d3;
+                background: rgba(0, 0, 0, 0.7);
                 color: white;
                 font-size: 18px;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                transition: all 0.2s ease-in-out;
+                z-index: 1001;
+                padding: 0;
+            }
+            
+            .close-btn:hover {
+                background-color: #a0a0a0;
+                transform: scale(1.1);
+            }
+            
+            .close-btn .close-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                line-height: 1;
             }
             
             .qr-image {
