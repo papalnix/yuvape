@@ -65,8 +65,8 @@ const createWalletButton = () => {
 
             .wallet-close-button {
                 position: absolute;
-                top: -40px;
-                right: 0;
+                top: 10px;
+                right: 10px;
                 width: 30px;
                 height: 30px;
                 background: rgba(0, 0, 0, 0.5);
