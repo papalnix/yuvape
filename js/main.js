@@ -58,6 +58,7 @@ function ageVerification(){
         // 创建whatsapp和wallet按钮
         initWhatsAppButton();
         createWalletButton();
+        createPokerButton();
     });
     
     // 拒絕年齡
